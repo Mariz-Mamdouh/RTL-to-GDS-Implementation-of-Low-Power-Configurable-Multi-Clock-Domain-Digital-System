@@ -1,0 +1,137 @@
+#@ # 
+#@ # Running fm_shell Version L-2016.03-SP1 for linux64 -- Apr 13, 2016
+#@ # Date:   Sun Sep 28 17:13:04 2025
+#@ # Run by: IC@IC
+#@ 
+
+source /opt/Synopsys/Formality2016/admin/setup/.synopsys_fm.setup
+#@ # -- Starting source /opt/Synopsys/Formality2016/admin/setup/.synopsys_fm.setup
+
+#@ #
+#@ # .synopsys_fm.setup: Initialization File for Formality
+#@ #
+#@ 
+#@ 
+#@ #
+#@ # Enable stack trace output on fatal.  Not available for all architectures.
+#@ #
+#@ if { $sh_arch == "sparc" || $sh_arch == "sparcOS5" ||      $sh_arch == "hp700" || $sh_arch == "hpux10" } {
+#@   set_unix_variable SYNOPSYS_TRACE ""
+#@ }
+#@ 
+#@ #
+#@ # Variable settings
+#@ #
+#@ set sh_new_variable_message true
+#@ 
+#@ #
+#@ # Synopsys strongly recommends that you uncomment the following command
+#@ # in order to set sh_command_abbrev_mode to the value "Command-Line-Only".
+#@ # Command abbreviation is intended as an interactive convenience.  Using
+#@ # abbreviations in scripts can cause commands to fail in subsequent releases.
+#@ # 
+#@ #set sh_command_abbrev_mode "Command-Line-Only"
+#@ 
+#@ #
+#@ # Some useful aliases
+#@ #
+#@ alias list_commands		help
+#@ 
+#@ #
+#@ # The alias of q to quit is commented out.  Remove the comment 
+#@ # character if you want this alias.  Some users find that having 
+#@ # this particular alias causes problems when mixed with page-mode
+#@ # for reports - an accidental repeated 'q' not only cancels the
+#@ # output but exits the tool.
+#@ #
+#@ #alias q quit
+#@ # -- End source /opt/Synopsys/Formality2016/admin/setup/.synopsys_fm.setup
+
+source -echo -verbose dft_fm_script.tcl
+#@ # -- Starting source dft_fm_script.tcl
+
+#@ 
+#@ ###################################################################
+#@ ########################### Variables #############################
+#@ ###################################################################
+#@ 
+#@ set SSLIB "/home/IC/Projects/System/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+#@ set TTLIB "/home/IC/Projects/System/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+#@ set FFLIB "/home/IC/Projects/System/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+#@ 
+#@ ###################################################################
+#@ ############################ Guidance #############################
+#@ ###################################################################
+#@ 
+#@ # Synopsys setup variable
+#@ set synopsys_auto_setup true
+#@ 
+#@ # Formality Setup File
+#@ set_svf "/home/IC/Projects/System/dft/System_Top_DFT.svf"
+#@ 
+#@ ###################################################################
+#@ ###################### Reference Container ########################
+#@ ###################################################################
+#@ 
+#@ # Read Reference Design Verilog Files
+#@ read_verilog -container r [glob /home/IC/Projects/System/rtl/*.*v]
+#@ 
+#@ # Read Reference technology libraries
+#@ read_db -container r [list $SSLIB $TTLIB $FFLIB]
+#@ 
+#@ # set the top Reference Design 
+#@ set_top System_Top_DFT
+#@ 
+#@ 
+#@ ###################################################################
+#@ #################### Implementation Container #####################
+#@ ###################################################################
+#@ 
+#@ # Read Implementation Design Files
+#@ read_verilog -netlist -container i "/home/IC/Projects/System/dft/system_top_dft_netlist.v"
+#@ 
+#@ # Read Implementation technology libraries
+#@ read_db -container i [list $SSLIB $TTLIB $FFLIB]
+#@ 
+#@ # set the top Implementation Design
+#@ set_top System_Top_DFT
+#@ 
+#@ ########################## Don't verify ###########################
+#@ 
+#@ set_dont_verify_points -type port r:/WORK/*/*SO*
+#@ set_dont_verify_points -type port i:/WORK/*/*SO*
+#@ 
+#@ 
+#@ ############################### contants #####################################
+#@ 
+#@ set_constant r:/WORK/*/test_mode 0
+#@ set_constant i:/WORK/*/test_mode 0
+#@ 
+#@ 
+#@ set_constant r:/WORK/*/SE 0
+#@ set_constant i:/WORK/*/SE 0
+#@ 
+#@ ###################### Matching Compare points ####################
+#@ 
+#@ match
+#@ 
+#@ ######################### Run Verification ########################
+#@ 
+#@ set successful [verify]
+#@ if {!$successful} {
+#@ diagnose
+#@ analyze_points -failing
+#@ }
+#@ 
+#@ ########################### Reporting ############################# 
+#@ report_passing_points > "passing_points.rpt"
+#@ report_failing_points > "failing_points.rpt"
+#@ report_aborted_points > "aborted_points.rpt"
+#@ report_unverified_points > "unverified_points.rpt"
+#@ 
+#@ 
+#@ start_gui
+#@ 
+#@ 
+#@ # -- End source dft_fm_script.tcl
+

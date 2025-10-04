@@ -1,0 +1,1549 @@
+$date
+	Sun Sep 21 21:10:27 2025
+$end
+$version
+	QuestaSim Version 2021.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module ASYNC_FIFO_tb $end
+$var parameter 32 ! DATA_WIDTH $end
+$var parameter 32 " WR_CLOCK_PERIOD $end
+$var parameter 32 # RD_CLOCK_PERIOD $end
+$var reg 1 $ W_CLK_tb $end
+$var reg 1 % W_RST_tb $end
+$var reg 1 & W_inc_tb $end
+$var reg 8 ' W_data_tb [7:0] $end
+$var reg 1 ( R_CLK_tb $end
+$var reg 1 ) R_RST_tb $end
+$var reg 1 * R_inc_tb $end
+$var wire 1 + R_data_tb [7] $end
+$var wire 1 , R_data_tb [6] $end
+$var wire 1 - R_data_tb [5] $end
+$var wire 1 . R_data_tb [4] $end
+$var wire 1 / R_data_tb [3] $end
+$var wire 1 0 R_data_tb [2] $end
+$var wire 1 1 R_data_tb [1] $end
+$var wire 1 2 R_data_tb [0] $end
+$var wire 1 3 empty_tb $end
+$var wire 1 4 full_tb $end
+$var integer 32 5 i $end
+$var integer 32 6 j $end
+
+$scope begin WRITE_PROC $end
+$upscope $end
+
+$scope begin READ_PROC $end
+$upscope $end
+
+$scope task WR_initialize $end
+$upscope $end
+
+$scope task RD_initialize $end
+$upscope $end
+
+$scope task WR_reset $end
+$upscope $end
+
+$scope task RD_reset $end
+$upscope $end
+
+$scope task write $end
+$var reg 8 7 data [7:0] $end
+$upscope $end
+
+$scope task read $end
+$var reg 8 8 exp_data [7:0] $end
+$upscope $end
+
+$scope module DUT $end
+$var parameter 32 9 DATA_WIDTH $end
+$var parameter 32 : ADDR_WIDTH $end
+$var wire 1 ; W_CLK $end
+$var wire 1 < W_RST $end
+$var wire 1 = W_inc $end
+$var wire 1 > W_data [7] $end
+$var wire 1 ? W_data [6] $end
+$var wire 1 @ W_data [5] $end
+$var wire 1 A W_data [4] $end
+$var wire 1 B W_data [3] $end
+$var wire 1 C W_data [2] $end
+$var wire 1 D W_data [1] $end
+$var wire 1 E W_data [0] $end
+$var wire 1 F R_CLK $end
+$var wire 1 G R_RST $end
+$var wire 1 H R_inc $end
+$var wire 1 + R_data [7] $end
+$var wire 1 , R_data [6] $end
+$var wire 1 - R_data [5] $end
+$var wire 1 . R_data [4] $end
+$var wire 1 / R_data [3] $end
+$var wire 1 0 R_data [2] $end
+$var wire 1 1 R_data [1] $end
+$var wire 1 2 R_data [0] $end
+$var wire 1 3 empty $end
+$var wire 1 4 full $end
+$var wire 1 I W_addr [2] $end
+$var wire 1 J W_addr [1] $end
+$var wire 1 K W_addr [0] $end
+$var wire 1 L R_addr [2] $end
+$var wire 1 M R_addr [1] $end
+$var wire 1 N R_addr [0] $end
+$var wire 1 O gray_rd_ptr [3] $end
+$var wire 1 P gray_rd_ptr [2] $end
+$var wire 1 Q gray_rd_ptr [1] $end
+$var wire 1 R gray_rd_ptr [0] $end
+$var wire 1 S gray_wr_ptr [3] $end
+$var wire 1 T gray_wr_ptr [2] $end
+$var wire 1 U gray_wr_ptr [1] $end
+$var wire 1 V gray_wr_ptr [0] $end
+$var wire 1 W sync_gray_wptr [3] $end
+$var wire 1 X sync_gray_wptr [2] $end
+$var wire 1 Y sync_gray_wptr [1] $end
+$var wire 1 Z sync_gray_wptr [0] $end
+$var wire 1 [ sync_gray_rptr [3] $end
+$var wire 1 \ sync_gray_rptr [2] $end
+$var wire 1 ] sync_gray_rptr [1] $end
+$var wire 1 ^ sync_gray_rptr [0] $end
+
+$scope module U0_FIFO_MEM $end
+$var parameter 32 _ DATA_WIDTH $end
+$var parameter 32 ` ADDR_WIDTH $end
+$var parameter 32 a DEPTH $end
+$var wire 1 ; W_CLK $end
+$var wire 1 < W_RST $end
+$var wire 1 = W_inc $end
+$var wire 1 4 full $end
+$var wire 1 I W_addr [2] $end
+$var wire 1 J W_addr [1] $end
+$var wire 1 K W_addr [0] $end
+$var wire 1 > W_data [7] $end
+$var wire 1 ? W_data [6] $end
+$var wire 1 @ W_data [5] $end
+$var wire 1 A W_data [4] $end
+$var wire 1 B W_data [3] $end
+$var wire 1 C W_data [2] $end
+$var wire 1 D W_data [1] $end
+$var wire 1 E W_data [0] $end
+$var wire 1 L R_addr [2] $end
+$var wire 1 M R_addr [1] $end
+$var wire 1 N R_addr [0] $end
+$var wire 1 + R_data [7] $end
+$var wire 1 , R_data [6] $end
+$var wire 1 - R_data [5] $end
+$var wire 1 . R_data [4] $end
+$var wire 1 / R_data [3] $end
+$var wire 1 0 R_data [2] $end
+$var wire 1 1 R_data [1] $end
+$var wire 1 2 R_data [0] $end
+$var wire 1 b W_clken $end
+$var integer 32 c i $end
+$upscope $end
+
+$scope module sync_r2w $end
+$var parameter 32 d DATA_WIDTH $end
+$var parameter 32 e ADDR_WIDTH $end
+$var wire 1 ; CLK $end
+$var wire 1 < RST $end
+$var wire 1 O in [3] $end
+$var wire 1 P in [2] $end
+$var wire 1 Q in [1] $end
+$var wire 1 R in [0] $end
+$var reg 4 f out [3:0] $end
+$var reg 4 g Q [3:0] $end
+$upscope $end
+
+$scope module sync_w2r $end
+$var parameter 32 h DATA_WIDTH $end
+$var parameter 32 i ADDR_WIDTH $end
+$var wire 1 F CLK $end
+$var wire 1 G RST $end
+$var wire 1 S in [3] $end
+$var wire 1 T in [2] $end
+$var wire 1 U in [1] $end
+$var wire 1 V in [0] $end
+$var reg 4 j out [3:0] $end
+$var reg 4 k Q [3:0] $end
+$upscope $end
+
+$scope module U1_FIFO_WR $end
+$var parameter 32 l DATA_WIDTH $end
+$var parameter 32 m ADDR_WIDTH $end
+$var wire 1 ; W_CLK $end
+$var wire 1 < W_RST $end
+$var wire 1 = W_inc $end
+$var wire 1 [ sync_gray_rptr [3] $end
+$var wire 1 \ sync_gray_rptr [2] $end
+$var wire 1 ] sync_gray_rptr [1] $end
+$var wire 1 ^ sync_gray_rptr [0] $end
+$var wire 1 I W_addr [2] $end
+$var wire 1 J W_addr [1] $end
+$var wire 1 K W_addr [0] $end
+$var reg 4 n gray_wr_ptr [3:0] $end
+$var wire 1 4 full $end
+$var reg 4 o bn_wr_ptr [3:0] $end
+$upscope $end
+
+$scope module U1_FIFO_RD $end
+$var parameter 32 p DATA_WIDTH $end
+$var parameter 32 q ADDR_WIDTH $end
+$var wire 1 F R_CLK $end
+$var wire 1 G R_RST $end
+$var wire 1 H R_inc $end
+$var wire 1 W sync_gray_wptr [3] $end
+$var wire 1 X sync_gray_wptr [2] $end
+$var wire 1 Y sync_gray_wptr [1] $end
+$var wire 1 Z sync_gray_wptr [0] $end
+$var wire 1 L R_addr [2] $end
+$var wire 1 M R_addr [1] $end
+$var wire 1 N R_addr [0] $end
+$var reg 4 r gray_rd_ptr [3:0] $end
+$var wire 1 3 empty $end
+$var reg 4 s bn_rd_ptr [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+
+$scope begin std $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+1%
+0&
+b0 '
+0(
+1)
+0*
+bx f
+bx g
+bx j
+bx k
+bx n
+bx o
+bx r
+bx s
+bx 7
+bx 8
+b1000 !
+b1010 "
+b11001 #
+b1000 9
+b11 :
+b1000 _
+b11 `
+b1000 a
+b1000 d
+b11 e
+b1000 h
+b11 i
+b1000 l
+b11 m
+b1000 p
+b11 q
+bx 5
+bx 6
+bx c
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x3
+x4
+xK
+xJ
+xI
+xN
+xM
+xL
+xR
+xQ
+xP
+xO
+xV
+xU
+xT
+xS
+xZ
+xY
+xX
+xW
+x^
+x]
+x\
+x[
+0b
+0H
+1G
+0F
+0E
+0D
+0C
+0B
+0A
+0@
+0?
+0>
+0=
+1<
+0;
+$end
+#5000
+1$
+1;
+#10000
+0%
+0$
+0<
+0;
+b0 c
+b1 c
+b10 c
+b11 c
+b100 c
+b101 c
+b110 c
+b111 c
+b1000 c
+b0 g
+b0 f
+b0 o
+b0 n
+0V
+0U
+0T
+0S
+0K
+0J
+0I
+0^
+0]
+0\
+0[
+04
+#12000
+1(
+1F
+b0 k
+#15000
+1$
+1;
+b0 c
+b1 c
+b10 c
+b11 c
+b100 c
+b101 c
+b110 c
+b111 c
+b1000 c
+#20000
+1%
+b0 5
+b1 7
+0$
+1<
+0;
+b1 '
+1E
+#24000
+0(
+0F
+#25000
+0)
+1$
+0G
+1;
+bx g
+b0 j
+b0 s
+b0 r
+0R
+0Q
+0P
+0O
+0N
+0M
+0L
+0Z
+0Y
+0X
+0W
+13
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+#30000
+0$
+0;
+1&
+1=
+1b
+#35000
+1$
+1;
+b1 o
+b0 g
+bx f
+x^
+x]
+x\
+x[
+1K
+12
+x4
+xb
+#36000
+1(
+1F
+#40000
+0$
+0;
+0&
+b1 5
+b10 7
+0=
+0b
+#45000
+1$
+1;
+b0 f
+b1 n
+1V
+0^
+0]
+0\
+0[
+04
+#48000
+0(
+0F
+#50000
+1)
+b0 6
+b1 8
+0$
+1G
+0;
+b10 '
+0E
+1D
+#55000
+1$
+1;
+#60000
+1(
+0$
+1F
+0;
+1&
+1=
+1b
+b1 k
+#65000
+1$
+1;
+b10 o
+0K
+1J
+#70000
+0$
+0;
+0&
+b10 5
+b11 7
+0=
+0b
+#72000
+0(
+0F
+1*
+1H
+#75000
+1$
+1;
+b11 n
+1U
+#80000
+0$
+0;
+b11 '
+1E
+#84000
+1(
+1F
+b11 k
+b1 j
+1Z
+03
+#85000
+1$
+1;
+#90000
+0$
+0;
+1&
+1=
+1b
+#95000
+1$
+1;
+b11 o
+1K
+#96000
+0(
+0F
+0*
+b1 6
+b10 8
+0H
+#100000
+0$
+0;
+0&
+b11 5
+b100 7
+0=
+0b
+#105000
+1$
+1;
+b10 n
+0V
+#108000
+1(
+1F
+b10 k
+b11 j
+1Y
+#110000
+0$
+0;
+b100 '
+0E
+0D
+1C
+#115000
+1$
+1;
+#120000
+0(
+0$
+0F
+0;
+1*
+1&
+1H
+1=
+1b
+#125000
+1$
+1;
+b100 o
+0K
+0J
+1I
+#130000
+0$
+0;
+0&
+b100 5
+b101 7
+0=
+0b
+#132000
+1(
+1F
+b1 s
+b10 j
+0Z
+1N
+02
+11
+#135000
+1$
+1;
+b110 n
+1T
+#140000
+0$
+0;
+b101 '
+1E
+#144000
+0(
+0F
+0*
+b10 6
+b11 8
+0H
+#145000
+1$
+1;
+#150000
+0$
+0;
+1&
+1=
+1b
+#155000
+1$
+1;
+b101 o
+1K
+#156000
+1(
+1F
+b110 k
+b1 r
+1R
+#160000
+0$
+0;
+0&
+b101 5
+b110 7
+0=
+0b
+#165000
+1$
+1;
+b1 g
+b111 n
+1V
+#168000
+0(
+0F
+1*
+1H
+#170000
+0$
+0;
+b110 '
+0E
+1D
+#175000
+1$
+1;
+b1 f
+1^
+#180000
+1(
+0$
+1F
+0;
+1&
+1=
+1b
+b10 s
+b111 k
+b110 j
+1X
+0N
+1M
+12
+#185000
+1$
+1;
+b110 o
+0K
+1J
+#190000
+0$
+0;
+0&
+b110 5
+b111 7
+0=
+0b
+#192000
+0(
+0F
+0*
+b11 6
+b100 8
+0H
+#195000
+1$
+1;
+b101 n
+0U
+#200000
+0$
+0;
+b111 '
+1E
+#204000
+1(
+1F
+b101 k
+b111 j
+b11 r
+1Q
+1Z
+#205000
+1$
+1;
+b11 g
+#210000
+0$
+0;
+1&
+1=
+1b
+#215000
+1$
+1;
+b111 o
+b11 f
+1]
+1K
+#216000
+0(
+0F
+1*
+1H
+#220000
+0$
+0;
+0&
+b111 5
+b1000 7
+0=
+0b
+#225000
+1$
+1;
+b100 n
+0V
+#228000
+1(
+1F
+b11 s
+b100 k
+b101 j
+0Y
+1N
+02
+01
+10
+#230000
+0$
+0;
+b1000 '
+0E
+0D
+0C
+1B
+#235000
+1$
+1;
+#240000
+0(
+0$
+0F
+0;
+0*
+b100 6
+b101 8
+1&
+0H
+1=
+1b
+#245000
+1$
+1;
+b1000 o
+0K
+0J
+0I
+#250000
+0$
+0;
+0&
+b1000 5
+b1001 7
+0=
+0b
+#252000
+1(
+1F
+b100 j
+b10 r
+0R
+0Z
+#255000
+1$
+1;
+b10 g
+b1100 n
+1S
+#260000
+0$
+0;
+b1001 '
+1E
+#264000
+0(
+0F
+1*
+1H
+#265000
+1$
+1;
+b10 f
+0^
+#270000
+0$
+0;
+1&
+1=
+1b
+#275000
+1$
+1;
+b1001 o
+1K
+#276000
+1(
+1F
+b100 s
+b1100 k
+0N
+0M
+1L
+12
+#280000
+0$
+0;
+0&
+b1001 5
+b1010 7
+0=
+0b
+#285000
+1$
+1;
+b1101 n
+1V
+#288000
+0(
+0F
+0*
+b101 6
+b110 8
+0H
+#290000
+0$
+0;
+b1010 '
+0E
+1D
+#295000
+1$
+1;
+#300000
+1(
+0$
+1F
+0;
+1&
+1=
+1b
+b1101 k
+b1100 j
+b110 r
+1P
+1W
+#305000
+1$
+1;
+b110 g
+b1010 o
+0K
+1J
+#310000
+0$
+0;
+0&
+b1010 5
+b1011 7
+0=
+0b
+#312000
+0(
+0F
+1*
+1H
+#315000
+1$
+1;
+b1111 n
+b110 f
+1\
+1U
+#320000
+0$
+0;
+b1011 '
+1E
+#324000
+1(
+1F
+b101 s
+b1111 k
+b1101 j
+1Z
+1N
+02
+11
+#325000
+1$
+1;
+#330000
+0$
+0;
+1&
+1=
+1b
+#335000
+1$
+1;
+b1011 o
+1K
+#336000
+0(
+0F
+0*
+b110 6
+b111 8
+0H
+#340000
+0$
+0;
+0&
+b1011 5
+b1100 7
+0=
+0b
+#345000
+1$
+1;
+b1110 n
+0V
+#348000
+1(
+1F
+b1110 k
+b1111 j
+b111 r
+1R
+1Y
+#350000
+0$
+0;
+b1100 '
+0E
+0D
+1C
+#355000
+1$
+1;
+b111 g
+#360000
+0(
+0$
+0F
+0;
+1*
+1&
+1H
+1=
+1b
+#365000
+1$
+1;
+b1100 o
+b111 f
+1^
+0K
+0J
+1I
+#370000
+0$
+0;
+0&
+b1100 5
+b1101 7
+0=
+0b
+#372000
+1(
+1F
+b110 s
+b1110 j
+0Z
+0N
+1M
+12
+#375000
+1$
+1;
+b1010 n
+0T
+#380000
+0$
+0;
+b1101 '
+1E
+#384000
+0(
+0F
+0*
+b111 6
+b1000 8
+0H
+#385000
+1$
+1;
+#390000
+0$
+0;
+1&
+1=
+1b
+#395000
+1$
+1;
+b1101 o
+1K
+#396000
+1(
+1F
+b1010 k
+b101 r
+0Q
+#400000
+0$
+0;
+0&
+b1101 5
+b1110 7
+0=
+0b
+#405000
+1$
+1;
+b101 g
+b1011 n
+14
+1V
+#408000
+0(
+0F
+1*
+1H
+#410000
+0$
+0;
+#415000
+1$
+1;
+b101 f
+0]
+04
+#420000
+1(
+0$
+1F
+0;
+b1110 '
+0E
+1D
+b111 s
+b1011 k
+b1010 j
+0X
+1N
+02
+01
+00
+1/
+#425000
+1$
+1;
+#430000
+0$
+0;
+1&
+1=
+1b
+#432000
+0(
+0F
+0*
+b1000 6
+b1001 8
+0H
+#435000
+1$
+1;
+b1110 o
+0K
+1J
+#440000
+0$
+0;
+0&
+b1110 5
+0=
+0b
+#444000
+1(
+1F
+b1011 j
+b100 r
+0R
+1Z
+#445000
+1$
+1;
+b100 g
+b1001 n
+14
+0U
+#450000
+0$
+0;
+#455000
+1$
+1;
+b100 f
+0^
+04
+#456000
+0(
+0F
+1*
+1H
+#460000
+0$
+0;
+#465000
+1$
+1;
+#468000
+1(
+1F
+b1000 s
+b1001 k
+0N
+0M
+0L
+12
+#470000
+0$
+0;
+#475000
+1$
+1;
+#480000
+0(
+0$
+0F
+0;
+0*
+b1001 6
+b1010 8
+0H
+#485000
+1$
+1;
+#490000
+0$
+0;
+#492000
+1(
+1F
+b1001 j
+b1100 r
+1O
+0Y
+#495000
+1$
+1;
+b1100 g
+#500000
+0$
+0;
+#504000
+0(
+0F
+1*
+1H
+#505000
+1$
+1;
+b1100 f
+1[
+#510000
+0$
+0;
+#515000
+1$
+1;
+#516000
+1(
+1F
+b1001 s
+1N
+02
+11
+#520000
+0$
+0;
+#525000
+1$
+1;
+#528000
+0(
+0F
+0*
+b1010 6
+b1011 8
+0H
+#530000
+0$
+0;
+#535000
+1$
+1;
+#540000
+1(
+0$
+1F
+0;
+b1101 r
+1R
+#545000
+1$
+1;
+b1101 g
+#550000
+0$
+0;
+#552000
+0(
+0F
+1*
+1H
+#555000
+1$
+1;
+b1101 f
+1^
+#560000
+0$
+0;
+#564000
+1(
+1F
+b1010 s
+0N
+1M
+12
+#565000
+1$
+1;
+#570000
+0$
+0;
+#575000
+1$
+1;
+#576000
+0(
+0F
+0*
+b1011 6
+b1100 8
+0H
+#580000
+0$
+0;
+#585000
+1$
+1;
+#588000
+1(
+1F
+b1111 r
+1Q
+#590000
+0$
+0;
+#595000
+1$
+1;
+b1111 g
+#600000
+0(
+0$
+0F
+0;
+1*
+1H
+#605000
+1$
+1;
+b1111 f
+1]
+#610000
+0$
+0;
+#612000
+1(
+1F
+b1011 s
+1N
+02
+01
+10
+#615000
+1$
+1;
+#620000
+0$
+0;
+#624000
+0(
+0F
+0*
+b1100 6
+b1101 8
+0H
+#625000
+1$
+1;
+#630000
+0$
+0;
+#635000
+1$
+1;
+#636000
+1(
+1F
+b1110 r
+0R
+#640000
+0$
+0;
+#645000
+1$
+1;
+b1110 g
+#648000
+0(
+0F
+1*
+1H
+#650000
+0$
+0;
+#655000
+1$
+1;
+b1110 f
+0^
+#660000
+1(
+0$
+1F
+0;
+b1100 s
+0N
+0M
+1L
+12
+#665000
+1$
+1;
+#670000
+0$
+0;
+#672000
+0(
+0F
+0*
+b1101 6
+b1110 8
+0H
+#675000
+1$
+1;
+#680000
+0$
+0;
+#684000
+1(
+1F
+b1010 r
+0P
+#685000
+1$
+1;
+b1010 g
+#690000
+0$
+0;
+#695000
+1$
+1;
+b1010 f
+0\
+#696000
+0(
+0F
+1*
+1H
+#700000
+0$
+0;
+#705000
+1$
+1;
+#708000
+1(
+1F
+b1101 s
+1N
+02
+11
+#710000
+0$
+0;
+#715000
+1$
+1;
+#720000
+0(
+0$
+0F
+0;
+0*
+b1110 6
+b111 8
+0H
+#725000
+1$
+1;
+#730000
+0$
+0;
+#732000
+1(
+1F
+b1011 r
+1R
+#735000
+1$
+1;
+b1011 g
+#740000
+0$
+0;
+#744000
+0(
+0F
+1*
+1H
+#745000
+1$
+1;
+b1011 f
+1^
+#750000
+0$
+0;
+#755000
+1$
+1;
+#756000
+1(
+1F
+b1110 s
+0N
+1M
+12
+0/
+#760000
+0$
+0;
+#765000
+1$
+1;
+#768000
+0(
+0F
+0*
+0H
+#770000
+0$
+0;
+#775000
+1$
+1;
+#780000
+1(
+0$
+1F
+0;
+b1001 r
+13
+0Q
+#785000
+1$
+1;
+b1001 g
+#790000
+0$
+0;
+#792000
+0(
+0F
+#795000
+1$
+1;
+b1001 f
+0]
+#800000
+0$
+0;
+#804000
+1(
+1F
+#805000
+1$
+1;
+#810000
+0$
+0;
+#815000
+1$
+1;
+#816000
+0(
+0F

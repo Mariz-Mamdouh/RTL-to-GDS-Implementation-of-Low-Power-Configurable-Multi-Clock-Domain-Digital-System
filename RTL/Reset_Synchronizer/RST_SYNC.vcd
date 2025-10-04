@@ -1,0 +1,265 @@
+$date
+	Mon Sep  1 15:19:21 2025
+$end
+$version
+	QuestaSim Version 2021.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module RST_SYNC_tb $end
+$var parameter 32 ! CLOCK_PERIOD $end
+$var parameter 32 " NUM_STAGES $end
+$var reg 1 # RST_tb $end
+$var reg 1 $ CLK_tb $end
+$var wire 1 % SYNC_RST_tb $end
+
+$scope task initialize $end
+$upscope $end
+
+$scope task reset $end
+$upscope $end
+
+$scope module DUT $end
+$var parameter 32 & NUM_STAGES $end
+$var wire 1 ' RST $end
+$var wire 1 ( CLK $end
+$var reg 1 ) SYNC_RST $end
+$var reg 6 * sync_ff [5:0] $end
+$var integer 32 + i $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1#
+0$
+x)
+bx *
+b1010 !
+b110 "
+b110 &
+bx +
+x%
+0(
+1'
+$end
+#5000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+bx1 *
+#10000
+0$
+0(
+#15000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+bx11 *
+#20000
+0$
+0(
+#25000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+bx111 *
+#30000
+0$
+0(
+#35000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+bx1111 *
+#40000
+0$
+0(
+#45000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+bx11111 *
+#50000
+0$
+0(
+#55000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+b111111 *
+#60000
+0$
+0(
+#65000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+1)
+1%
+#70000
+0#
+0$
+0'
+0(
+0)
+b0 *
+0%
+#75000
+1$
+1(
+#80000
+1#
+0$
+1'
+0(
+#85000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+b1 *
+#90000
+0$
+0(
+#95000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+b11 *
+#100000
+0$
+0(
+#105000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+b111 *
+#110000
+0$
+0(
+#115000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+b1111 *
+#120000
+0$
+0(
+#125000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+b11111 *
+#130000
+0$
+0(
+#135000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+b111111 *
+#140000
+0$
+0(
+#145000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+1)
+1%
+#150000
+0$
+0(
+#155000
+1$
+1(
+b1 +
+b10 +
+b11 +
+b100 +
+b101 +
+b110 +
+#160000
+0$
+0(
+#165000
+1$
+1(
+#170000
+0$
+0(
+#175000
+1$
+1(

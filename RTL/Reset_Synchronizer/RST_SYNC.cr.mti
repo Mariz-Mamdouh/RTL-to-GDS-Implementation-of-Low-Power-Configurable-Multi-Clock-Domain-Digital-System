@@ -1,0 +1,15 @@
+{D:/ASIC Diploma/System/Reset Synchronizer/RST_SYNC_tb.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/Reset Synchronizer/RST_SYNC_tb.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module RST_SYNC_tb
+
+Top level modules:
+	RST_SYNC_tb
+
+} {} {}} {D:/ASIC Diploma/System/Reset Synchronizer/RST_SYNC.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/Reset Synchronizer/RST_SYNC.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module RST_SYNC
+
+Top level modules:
+	RST_SYNC
+
+} {} {}}

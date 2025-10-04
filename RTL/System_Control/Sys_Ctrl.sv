@@ -1,0 +1,298 @@
+module Sys_Ctrl #(
+    parameter  DATA_WIDTH = 8,
+               ADDR = 4,
+               ALU_OUT_WIDTH = 16
+) (
+    input wire                      CLK,
+    input wire                      RST,
+    input wire [ALU_OUT_WIDTH-1:0]  ALU_OUT,
+    input wire                      Out_Valid,
+    input wire [DATA_WIDTH-1:0]     RdData,
+    input wire                      RdData_Valid,
+    input wire [DATA_WIDTH-1:0]     RX_P_Data,
+    input wire                      RX_D_VLD,
+    input wire                      FIFO_Full,
+    output reg [3:0]                ALU_FUN,
+    output reg                      ALU_EN,
+    output reg                      CLK_EN,
+    output reg [ADDR-1:0]           Address,
+    output reg                      WrEn,
+    output reg                      RdEn,
+    output reg [DATA_WIDTH-1:0]     WrData,
+    output reg [DATA_WIDTH-1:0]     TX_P_DATA,
+    output reg                      TX_D_VLD,
+    output reg                      clk_div_en
+);
+    reg [ALU_OUT_WIDTH-1:0] ALU_OUT_reg;
+    reg [ADDR-1:0] Address_reg;
+    reg ALU_flag, Address_flag;
+
+    localparam RF_WR_CMD = 8'hAA;
+    localparam RF_RD_CMD = 8'hBB;
+    localparam ALU_OPER_W_OP_CMD = 8'hCC;
+    localparam ALU_OPER_W_NOP_CMD = 8'hDD;
+
+    typedef enum bit [3:0] { 
+        Idle, 
+        Write_Addr,
+        Write_Data,
+        Read_Addr,
+        Wait_RdResp,
+        First_operand,
+        Second_operand,
+        ALU_Fun,
+        Wait_ALU_OUT,
+        Send_ALU_MSB,
+        Send_ALU_LSB
+    } state_e;
+
+    state_e current_state, next_state;
+
+    // State Transition 	
+    always @(posedge CLK or negedge RST) begin
+        if (!RST) begin
+            current_state <= Idle;
+        end else begin
+            current_state <= next_state;
+        end
+    end
+
+    // Next State Logic
+    always @(*) begin
+        case (current_state)
+            Idle: begin
+                if (RX_D_VLD) begin
+                    case (RX_P_Data)
+                        RF_WR_CMD: next_state = Write_Addr;
+                        RF_RD_CMD: next_state = Read_Addr;
+                        ALU_OPER_W_OP_CMD: next_state = First_operand;
+                        ALU_OPER_W_NOP_CMD: next_state = ALU_Fun;
+                        default: next_state = Idle;
+                    endcase
+                end else begin
+                    next_state = Idle;
+                end
+            end
+            Write_Addr: begin
+                if (RX_D_VLD) begin
+                    next_state = Write_Data;
+                end else begin
+                    next_state = Write_Addr;
+                end
+            end
+            Write_Data: begin
+                if (RX_D_VLD) begin
+                    next_state = Idle;
+                end else begin
+                    next_state = Write_Data;
+                end
+            end
+            Read_Addr: begin
+                if (RX_D_VLD) begin
+                    next_state = Wait_RdResp;
+                end else begin
+                    next_state = Read_Addr;
+                end
+            end
+            Wait_RdResp: begin
+                if (RdData_Valid && !FIFO_Full) begin
+                    next_state = Idle;
+                end else begin
+                    next_state = Wait_RdResp;
+                end
+            end
+            First_operand: begin
+                if (RX_D_VLD) begin
+                    next_state = Second_operand;
+                end else begin
+                    next_state = First_operand;
+                end
+            end
+            Second_operand: begin
+                if (RX_D_VLD) begin
+                    next_state = ALU_Fun;
+                end else begin
+                    next_state = Second_operand;
+                end
+            end
+            ALU_Fun: begin
+                if (RX_D_VLD) begin
+                    next_state = Wait_ALU_OUT;
+                end else begin
+                    next_state = ALU_Fun;
+                end
+            end
+            Wait_ALU_OUT: begin
+                if (Out_Valid) begin
+                    next_state = Send_ALU_LSB;
+                end else begin
+                    next_state = Wait_ALU_OUT;
+                end
+            end
+            Send_ALU_LSB: begin
+                next_state = Send_ALU_MSB;
+            end
+            Send_ALU_MSB: begin
+                next_state = Idle;
+            end
+            default: next_state = Idle;
+        endcase
+    end
+
+    // Output Logic
+    always @(*) begin
+        // Default values
+        ALU_FUN = 4'b0;
+        ALU_EN = 1'b0;
+        CLK_EN = 1'b0;
+        Address = 'b0;
+        WrEn = 1'b0;
+        RdEn = 1'b0;
+        WrData = 'b0;
+        TX_P_DATA = 'b0;
+        TX_D_VLD = 1'b0;
+        clk_div_en = 1'b1;
+        ALU_flag = 1'b0;
+        Address_flag = 1'b0;
+        case (current_state)
+            Idle: begin
+                ALU_FUN = 4'b0;
+                ALU_EN = 1'b0;
+                CLK_EN = 1'b0;
+                Address = 'b0;
+                WrEn = 1'b0;
+                RdEn = 1'b0;
+                WrData = 'b0;
+                TX_P_DATA = 'b0;
+                TX_D_VLD = 1'b0;
+                clk_div_en = 1'b1;
+                ALU_flag = 1'b0;
+                Address_flag = 1'b0;
+            end
+            Write_Addr: begin
+                if (RX_D_VLD) begin
+                    Address_flag = 1'b1;
+                end else begin
+                    Address_flag = 1'b0;
+                end
+            end
+            Write_Data: begin
+                if (RX_D_VLD) begin
+                    WrEn = 1'b1;
+                    Address = Address_reg;
+                    WrData = RX_P_Data;
+                end else begin
+                    WrEn = 1'b0;
+                    Address = 'b0;
+                    WrData = 'b0;
+                end
+            end
+            Read_Addr: begin
+                if (RX_D_VLD) begin
+                    RdEn = 1'b1;
+                    Address = RX_P_Data[ADDR-1:0];
+                end else begin
+                    RdEn = 1'b0;
+                    Address = 'b0;
+                end
+            end
+            Wait_RdResp: begin
+                if (RdData_Valid && !FIFO_Full) begin
+                    TX_P_DATA = RdData;
+                    TX_D_VLD = 1'b1;
+                end else begin
+                    TX_P_DATA = 'b0;
+                    TX_D_VLD = 1'b0;
+                end
+            end
+            First_operand: begin
+                if (RX_D_VLD) begin
+                    WrEn = 1'b1;
+                    Address = 'b0;
+                    WrData = RX_P_Data;
+                end else begin
+                    WrEn = 1'b0;
+                    Address = 'b0;
+                    WrData = 'b0;
+                end
+            end
+            Second_operand: begin
+                if (RX_D_VLD) begin
+                    WrEn = 1'b1;
+                    Address = 'b1;
+                    WrData = RX_P_Data;
+                end else begin
+                    WrEn = 1'b0;
+                    Address = 'b0;
+                    WrData = 'b0;
+                end
+            end
+            ALU_Fun: begin
+                CLK_EN = 1'b1;
+                if (RX_D_VLD) begin
+                    ALU_EN = 1'b1;
+                    ALU_FUN = RX_P_Data[ADDR-1:0];
+                end else begin
+                    ALU_EN = 1'b0;
+                    ALU_FUN = 'b0;
+                end
+            end 
+            Wait_ALU_OUT: begin
+                CLK_EN = 1'b1;
+                if (Out_Valid) begin
+                    ALU_flag = 1'b1;
+                end else begin
+                    ALU_flag = 1'b0;
+                end
+            end
+            Send_ALU_LSB: begin
+                if (!FIFO_Full) begin
+                    TX_D_VLD = 1'b1;
+                    TX_P_DATA = ALU_OUT_reg[DATA_WIDTH-1:0];
+                end else begin
+                    TX_D_VLD = 1'b0;
+                    TX_P_DATA = 'b0;
+                end
+            end
+            Send_ALU_MSB: begin
+                if (!FIFO_Full) begin
+                    TX_D_VLD = 1'b1;
+                    TX_P_DATA = ALU_OUT_reg[ALU_OUT_WIDTH-1:DATA_WIDTH];
+                end else begin
+                    TX_D_VLD = 1'b0;
+                    TX_P_DATA = 'b0;
+                end
+            end
+            default: begin
+                ALU_FUN = 4'b0;
+                ALU_EN = 1'b0;
+                CLK_EN = 1'b0;
+                Address = 'b0;
+                WrEn = 1'b0;
+                RdEn = 1'b0;
+                WrData = 'b0;
+                TX_P_DATA = 'b0;
+                TX_D_VLD = 1'b0;
+                clk_div_en = 1'b1;
+                ALU_flag = 1'b0;
+                Address_flag = 1'b0;
+            end
+        endcase
+    end
+
+    always @(posedge CLK or negedge RST) begin
+        if (!RST) begin
+            ALU_OUT_reg <= 'b0;
+        end else if (ALU_flag) begin
+            ALU_OUT_reg <= ALU_OUT;
+        end
+    end
+
+    always @(posedge CLK or negedge RST) begin
+        if (!RST) begin
+            Address_reg <= 'b0;
+        end else if (Address_flag) begin
+            Address_reg <= RX_P_Data[ADDR-1:0];
+        end 
+    end
+endmodule

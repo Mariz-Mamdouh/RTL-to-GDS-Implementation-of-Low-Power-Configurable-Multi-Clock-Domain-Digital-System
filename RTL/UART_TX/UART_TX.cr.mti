@@ -1,0 +1,29 @@
+{D:/ASIC Diploma/System/UART_TX/UART_TX_tb.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/UART_TX/UART_TX_tb.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module UART_TX_tb
+
+Top level modules:
+	UART_TX_tb
+
+} {} {}} {D:/ASIC Diploma/System/UART_TX/serializer.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/UART_TX/serializer.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module serializer
+
+Top level modules:
+	serializer
+
+} {} {}} {D:/ASIC Diploma/System/UART_TX/UART_TX.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/UART_TX/UART_TX.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module UART_TX
+
+Top level modules:
+	UART_TX
+
+} {} {}} {D:/ASIC Diploma/System/UART_TX/parity_calc.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/UART_TX/parity_calc.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module parity_calc
+
+Top level modules:
+	parity_calc
+
+} {} {}}

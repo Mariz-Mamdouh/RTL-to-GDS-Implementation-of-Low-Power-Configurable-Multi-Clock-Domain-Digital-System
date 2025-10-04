@@ -1,0 +1,36 @@
+{D:/ASIC Diploma/System/Asynchronous_FIFO/FIFO_MEM_CNTRL.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/Asynchronous_FIFO/FIFO_MEM_CNTRL.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module FIFO_MEM_CNTRL
+
+Top level modules:
+	FIFO_MEM_CNTRL
+
+} {} {}} {D:/ASIC Diploma/System/Asynchronous_FIFO/FIFO_WR.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/Asynchronous_FIFO/FIFO_WR.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module FIFO_WR
+
+Top level modules:
+	FIFO_WR
+
+} {} {}} {D:/ASIC Diploma/System/Asynchronous_FIFO/ASYNC_FIFO.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/Asynchronous_FIFO/ASYNC_FIFO.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module ASYNC_FIFO
+
+Top level modules:
+	ASYNC_FIFO
+
+} {} {}} {D:/ASIC Diploma/System/Asynchronous_FIFO/ASYNC_FIFO_tb.sv} {1 {vlog -work work -vopt -sv -stats=none {D:/ASIC Diploma/System/Asynchronous_FIFO/ASYNC_FIFO_tb.sv}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module ASYNC_FIFO_tb
+
+Top level modules:
+	ASYNC_FIFO_tb
+
+} {} {}} {D:/ASIC Diploma/System/Asynchronous_FIFO/DF_SYNC.v} {1 {vlog -work work -vopt -stats=none {D:/ASIC Diploma/System/Asynchronous_FIFO/DF_SYNC.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module DF_SYNC
+
+Top level modules:
+	DF_SYNC
+
+} {} {}}

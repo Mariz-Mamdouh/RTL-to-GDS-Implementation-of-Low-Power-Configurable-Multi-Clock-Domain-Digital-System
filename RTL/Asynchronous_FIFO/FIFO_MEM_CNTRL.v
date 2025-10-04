@@ -1,0 +1,31 @@
+module FIFO_MEM_CNTRL #(
+    parameter DATA_WIDTH = 8,
+    localparam ADDR_WIDTH = $clog2(DATA_WIDTH),
+    parameter DEPTH = 8
+) (
+    input wire                   W_CLK,
+    input wire                   W_RST,
+    input wire                   W_inc,
+    input wire                   full,
+    input wire  [ADDR_WIDTH-1:0] W_addr,
+    input wire  [DATA_WIDTH-1:0] W_data,
+    input wire  [ADDR_WIDTH-1:0] R_addr,
+    output wire [DATA_WIDTH-1:0] R_data
+);
+    wire W_clken;
+    reg [DATA_WIDTH-1:0] mem [0:DEPTH-1];
+    integer i;
+
+    assign W_clken = W_inc & (~full);
+    assign R_data = mem[R_addr];
+
+    always @(posedge W_CLK or negedge W_RST) begin
+        if (!W_RST) begin
+            for (i=0 ; i<DEPTH ; i=i+1) begin
+                mem[i] <= 'b0;
+            end
+        end else if (W_clken) begin
+           mem[W_addr] <= W_data;
+        end
+    end
+endmodule

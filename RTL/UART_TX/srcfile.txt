@@ -1,0 +1,6 @@
+parity_calc.v
+serializer.v
+UART_FSM.v
+UART_MUX.v
+UART_TX_tb.v
+UART_TX.v

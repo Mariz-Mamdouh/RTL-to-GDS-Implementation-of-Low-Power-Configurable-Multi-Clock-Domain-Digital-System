@@ -1,0 +1,322 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dD:/ASIC Diploma/Assignement5.0
+T_opt
+!s110 1754418578
+V<B_8z1eMiR?_LE^R35@^?1
+Z2 04 10 4 work UART_TX_tb fast 0
+=1-846993537ea9-68924d91-32e-1018
+Z3 !s124 OEM100
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+Z5 tCvgOpt 0
+n@_opt
+Z6 OL;O;2021.1;73
+R1
+T_opt1
+!s110 1754418452
+VL1CG3T>W:VKD7Uo96MLl50
+R2
+=1-846993537ea9-68924d13-264-39e0
+R3
+o-quiet -auto_acc_if_foreign -work work +accs
+R5
+n@_opt1
+R6
+R1
+T_opt2
+!s110 1758478152
+V^X_CK9TNL9eA0c<YM?F1<3
+R2
+=1-846993537ea9-68d03f47-2b3-6350
+R3
+R4
+R5
+n@_opt2
+R6
+vparity_calc
+Z7 !s110 1758478147
+!i10b 1
+!s100 ];<HQ:omYagDe3<3?A;H82
+IjOVOEIK8_=][Rh3Al5L?X1
+Z8 dD:/ASIC Diploma/System/UART_TX
+w1758304189
+8parity_calc.v
+Fparity_calc.v
+!i122 791
+L0 1 34
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z11 !s108 1758478146.000000
+Z12 !s107 UART_TX.v|UART_TX_tb.v|UART_MUX.v|UART_FSM.v|serializer.v|parity_calc.v|
+Z13 !s90 -reportprogress|300|-f|srcfile.txt|
+!i113 0
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5
+vserializer
+R7
+!i10b 1
+!s100 44M@oh@?Fd??U9hMXC1zo3
+I1ciiCoBB4n8fN=WKb2?1L2
+R8
+w1758304355
+8serializer.v
+Fserializer.v
+!i122 791
+L0 1 36
+R9
+R10
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 0
+R14
+R5
+vUART_FSM
+R7
+!i10b 1
+!s100 5a[b5P>AOB=Q`T]L@HTb82
+IAAVaM_Dl;?e:;JWAP@WTh1
+R8
+w1758478095
+8UART_FSM.v
+FUART_FSM.v
+!i122 791
+L0 1 110
+R9
+R10
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 0
+R14
+R5
+n@u@a@r@t_@f@s@m
+vUART_MUX
+R7
+!i10b 1
+!s100 g_6MMYcS55S>LC:FZJ;WO2
+IgMNgOQ94O0DU;4afJJFn90
+R8
+w1758477718
+8UART_MUX.v
+FUART_MUX.v
+!i122 791
+L0 1 24
+R9
+R10
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 0
+R14
+R5
+n@u@a@r@t_@m@u@x
+vUART_TOP
+!s110 1754323953
+!i10b 1
+!s100 X4MdUjRM5iDTW6Q0>zfkY0
+I;:`cPN`OiDcQ`fmSR:k>H3
+R8
+w1754323710
+8D:/ASIC Diploma/System/UART_TX/UART_TX_TOP.v
+FD:/ASIC Diploma/System/UART_TX/UART_TX_TOP.v
+!i122 21
+L0 1 49
+R9
+R10
+r1
+!s85 0
+31
+!s108 1754323952.000000
+!s107 D:/ASIC Diploma/System/UART_TX/UART_TX_TOP.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ASIC Diploma/System/UART_TX/UART_TX_TOP.v|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5
+n@u@a@r@t_@t@o@p
+vUART_TX
+R7
+!i10b 1
+!s100 mTVIbg9N^OBWI52LO;6o<3
+IB1]0GZZ;zQK_JPYZS3InA2
+R8
+w1758476639
+8UART_TX.v
+FUART_TX.v
+!i122 791
+L0 1 59
+R9
+R10
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 0
+R14
+R5
+n@u@a@r@t_@t@x
+vUART_TX_tb
+R7
+!i10b 1
+!s100 7lHPazCzTk]>NJ=bo=;Eo0
+Ihi8Xd4n=Ol<[?1XP3HbJQ3
+R8
+w1758470127
+8UART_TX_tb.v
+FUART_TX_tb.v
+!i122 791
+L0 2 142
+R9
+R10
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 0
+R14
+R5
+n@u@a@r@t_@t@x_tb
+vUART_TX_TOP
+!s110 1755172336
+!i10b 1
+!s100 n_`E<N<?Q3amBB4=DL5nG2
+INP7_`VFi6F<LWfnZe:T3J3
+R8
+w1755172234
+8UART_TX_TOP.v
+FUART_TX_TOP.v
+!i122 698
+L0 1 56
+R9
+R10
+r1
+!s85 0
+31
+!s108 1755172336.000000
+!s107 UART_TX_TOP.v|UART_TX_tb.v|UART_MUX.v|UART_FSM.v|serilaizer.v|parity_calc.v|
+R13
+!i113 0
+R14
+R5
+n@u@a@r@t_@t@x_@t@o@p

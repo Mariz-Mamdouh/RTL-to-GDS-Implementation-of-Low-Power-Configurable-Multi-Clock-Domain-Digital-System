@@ -1,0 +1,88 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/ASIC Diploma/System/UART_RX
+T_opt
+!s110 1756375777
+VKM5WD<2bBT9aYZ7HU@N7B0
+04 16 4 work Clock_Divider_tb fast 0
+=1-846993537ea9-68b02ade-2be-49d0
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2021.1;73
+vClock_Divider
+Z2 !s110 1756375772
+!i10b 1
+!s100 85bXU<OYCW@9o_XefbW0[2
+I7Q=VR1RA>]T2hh6Rjl>nX0
+Z3 dD:/ASIC Diploma/System/Clock Divider
+w1756312148
+8Clock_Divider.v
+FClock_Divider.v
+!i122 24
+L0 1 46
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z6 !s108 1756375771.000000
+Z7 !s107 Clock_Divider_tb.v|Clock_Divider.v|
+Z8 !s90 -reportprogress|300|Clock_Divider.v|Clock_Divider_tb.v|
+!i113 0
+Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@clock_@divider
+vClock_Divider_tb
+R2
+!i10b 1
+!s100 O:AkXV2V3kIFYJ?OYaXBU1
+Im0mHR=aBD<db64XAhJRR`0
+R3
+w1756375760
+8Clock_Divider_tb.v
+FClock_Divider_tb.v
+!i122 24
+L0 2 101
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@clock_@divider_tb

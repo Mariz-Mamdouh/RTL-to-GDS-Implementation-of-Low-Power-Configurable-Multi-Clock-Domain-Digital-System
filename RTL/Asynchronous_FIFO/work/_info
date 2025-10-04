@@ -1,0 +1,164 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/ASIC Diploma/System/UART_TX
+T_opt
+!s110 1758478214
+VOVa?m8MAm2l:4JaB0bV8Z0
+04 13 4 work ASYNC_FIFO_tb fast 0
+=1-846993537ea9-68d03f86-a2-6af8
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2021.1;73
+vASYNC_FIFO
+Z2 !s110 1758478213
+!i10b 1
+!s100 adYJPN4L5=KG>Vnmi9k^03
+IN2]dkYT4k:SdmKobi9Gok3
+Z3 dD:/ASIC Diploma/System/Asynchronous_FIFO
+w1756909084
+8ASYNC_FIFO.v
+FASYNC_FIFO.v
+!i122 8
+L0 1 74
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z6 !s108 1758478213.000000
+Z7 !s107 FIFO_WR.v|FIFO_RD.v|FIFO_MEM_CNTRL.v|DF_SYNC.v|ASYNC_FIFO_tb.sv|ASYNC_FIFO.v|
+Z8 !s90 -reportprogress|300|ASYNC_FIFO.v|ASYNC_FIFO_tb.sv|DF_SYNC.v|FIFO_MEM_CNTRL.v|FIFO_RD.v|FIFO_WR.v|
+!i113 0
+Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@a@s@y@n@c_@f@i@f@o
+vASYNC_FIFO_tb
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R2
+!i10b 1
+!s100 P3HeDLKFRdM`zgb2GT8Eb2
+Ik_TAi9F;6BJjYR@6]2nWm3
+S1
+R3
+w1756992333
+8ASYNC_FIFO_tb.sv
+FASYNC_FIFO_tb.sv
+!i122 8
+L0 2 139
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@a@s@y@n@c_@f@i@f@o_tb
+vDF_SYNC
+R2
+!i10b 1
+!s100 Bm^dAU>KVj7GB?BiocJRm0
+IKC5PZj6?and8DVI4iGee40
+R3
+w1756908947
+8DF_SYNC.v
+FDF_SYNC.v
+!i122 8
+L0 1 21
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@d@f_@s@y@n@c
+vFIFO_MEM_CNTRL
+R2
+!i10b 1
+!s100 2?ME;<S9VNFEceCRCS3<D3
+I?mOaFF`9GV38fK5@n[D<n0
+R3
+w1756908940
+8FIFO_MEM_CNTRL.v
+FFIFO_MEM_CNTRL.v
+!i122 8
+L0 1 31
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@f@i@f@o_@m@e@m_@c@n@t@r@l
+vFIFO_RD
+R2
+!i10b 1
+!s100 U3]6k2XgUl0Z3Om<R[1;<2
+IM7f8AhZ]^BTTZ=jNcmz?P3
+R3
+w1758477980
+8FIFO_RD.v
+FFIFO_RD.v
+!i122 8
+L0 1 33
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@f@i@f@o_@r@d
+vFIFO_WR
+R2
+!i10b 1
+!s100 1a7T2VANFgIHXZ@CQ5?[<1
+IX^cl;2YCS2zW6<X[G?=?g1
+R3
+w1756908937
+8FIFO_WR.v
+FFIFO_WR.v
+!i122 8
+L0 1 37
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@f@i@f@o_@w@r
