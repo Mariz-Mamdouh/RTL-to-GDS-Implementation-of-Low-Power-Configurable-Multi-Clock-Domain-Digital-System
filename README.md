@@ -66,9 +66,13 @@ It is responsible of receiving commands through UART receiver to do different sy
 - UART Clock (UART_CLK): 3.6864 MHz
 - Clock Divider: Always enabled (clock divider enable = 1)
      
-    
-
-
+## Sequence of Operation
+- Initially configuration operations are performed through Register file write operations in addresses (0x2, 0x3).
+- The Master (Testbench) start to send different commands (RegFile Operations, ALU operations).
+- Our system will receive the command frames through UART_RX, it sent to the SYS_CTRL block to be processed.
+- Once the operation of the command is performed using ALU/RegFile, SYS_CTRL sends the result to the master through UART_TX.
+- Register File Address Range for normal write/read operations (From 0x4 to 0x15).
+- Register File Addresses reserved for configurations and ALU operands (From 0x0 to 0x3).
 
       
 
