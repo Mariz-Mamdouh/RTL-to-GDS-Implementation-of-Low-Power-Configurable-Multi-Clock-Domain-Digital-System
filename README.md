@@ -24,35 +24,35 @@ It is responsible of receiving commands through UART receiver to do different sy
 
 ## Supported Operations
 #### ALU Operations
-Addition
-Subtraction
-Multiplication 
-Division
-AND
-OR
-NAND
-NOR
-XOR
-XNOR
-CMP: A = B
-CMP: A > B
-SHIFT: A >> 1
-SHIFT: A << 1
+- Addition
+- Subtraction
+- Multiplication 
+- Division
+- AND
+- OR
+- NAND
+- NOR
+- XOR
+- XNOR
+- CMP: A = B
+- CMP: A > B
+- SHIFT: A >> 1
+- SHIFT: A << 1
 
 #### Register File Operations
-Register File Write
-Register File read
+- Register File Write
+- Register File read
      
 ## Supported Commands
-Register File Write Command (3 frames)
-Register File Read Command (2 frames)
-ALU Operation Command with Operand (4 frames)
-ALU Operation Command with No Operand (2 frames)
+- Register File Write Command (3 frames)
+- Register File Read Command (2 frames)
+- ALU Operation Command with Operand (4 frames)
+- ALU Operation Command with No Operand (2 frames)
 
 ## System Specifications
-Reference Clock (REF_CLK): 50 MHz
-UART Clock (UART_CLK): 3.6864 MHz
-Clock Divider: Always enabled (clock divider enable = 1)
+- Reference Clock (REF_CLK): 50 MHz
+- UART Clock (UART_CLK): 3.6864 MHz
+- Clock Divider: Always enabled (clock divider enable = 1)
      
     
 
